@@ -1,27 +1,37 @@
-const chai = require('chai');
-const assert = chai.assert;
+const chai = require('chai'); const assert = chai.assert;
 
 const Ball = require('../lib/ball');
 
 describe('Ball', function() {
   context('with default attributes', function() {
-    var ball = new Ball(30, 30);
-    var initialX = 30
+    var ball = new Ball({x: 30, y: 40});
+    var radius = 20;
+    var color = 'yellow';
+    var vx = 3;
+    var vy = -3;
 
     it('should assign an x coordinate', function() {
-      assert.equal(ball.x, initialX);
+      assert.equal(ball.x, 30);
     });
 
-    xit('should assign a y coordinate', function() {
-      assert.equal(dingus.y, 0);
+    it('should assign a y coordinate', function() {
+      assert.equal(ball.y, 40);
     });
 
-    xit('should assign a height', function(){
-      assert.equal(dingus.height, 10);
+    it('should assign a radius', function(){
+      assert.equal(ball.radius, radius);
     });
 
-    xit('should assign a width', function(){
-      assert.equal(dingus.width, 10);
+    it('should assign a color', function(){
+      assert.equal(ball.color, color);
+    });
+
+    it('should assign a vx', function(){
+      assert.equal(ball.vx, vx);
+    });
+
+    it('should assign a vy', function(){
+      assert.equal(ball.vy, vy);
     });
   });
 
