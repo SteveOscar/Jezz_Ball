@@ -16,12 +16,12 @@ describe('Wall', function() {
       assert.equal(wall.y, 40);
     });
 
-    it('should assign a radius', function(){
-      assert.equal(wall.radius, radius);
+    it('should assign a height', function(){
+      assert.equal(wall.height, height);
     });
 
-    it('should assign a color', function(){
-      assert.equal(wall.color, color);
+    it('should assign a width', function(){
+      assert.equal(wall.width, width);
     });
   });
 
