@@ -2,15 +2,21 @@
 <html>
 <head>
   <style media="screen">
-  canvas {
+  #game {
           background: teal;
           }
+  .left_right{
+    cursor: url(left_right_arrows.png), auto;
+  }
+  .up_down{
+    cursor: url(up_down_arrows.png), auto;
+  }
   </style>
   <meta charset="utf-8">
   <title>Game Time</title>
 </head>
 <body>
-  <canvas id="game" width="600px" height="300px"></canvas>
+  <canvas class="left_right" id="game" width="600px" height="300px"></canvas>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="main.bundle.js"></script>
   <p id="direction">horizontal</p>
