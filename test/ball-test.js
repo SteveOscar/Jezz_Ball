@@ -6,9 +6,9 @@ describe('Ball', function() {
   context('with default attributes', function() {
     var ball = new Ball({x: 30, y: 40});
     var radius = 20;
-    var color = 'yellow';
-    var vx = 3;
-    var vy = -3;
+    var color = 'blue';
+    var vx = 2;
+    var vy = -2;
 
     it('should assign an x coordinate', function() {
       assert.equal(ball.x, 30);
