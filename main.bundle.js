@@ -45,6 +45,7 @@
 /***/ function(module, exports) {
 
 	'use strict';
+	var _ = require("lodash");
 
 	var sayHello = function sayHello() {
 	  return console.log('Hello');
