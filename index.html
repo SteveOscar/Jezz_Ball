@@ -13,11 +13,11 @@
   .up_down{
     cursor: url(up_down_arrows.png), auto;
   }
-  #game_over {
+  #game_over, #next_level {
     display: none;
   }
 
-  #game_start, #game_over {
+  #game_start, #game_over, #next_level {
       position: absolute;
       left: 0;
       top: 0;
@@ -28,7 +28,7 @@
       text-align: center;
       font-family: Arial Narrow, sans-serif;
   }
-  #game_start_button, #play_again_button {
+  #game_start_button, #play_again_button, #next_level_button {
     border: 1px solid #fff;
     padding: 20px;
     width: 100px;
@@ -37,7 +37,7 @@
     background-color: rgba(0,0,0,0.5);
     cursor: pointer;
   }
-  #game_start_button:hover, #play_again_button:hover {
+  #game_start_button:hover, #play_again_button:hover, #next_level_button:hover {
     background-color: rgba(0,0,0,0.7);
   }
   </style>
@@ -71,6 +71,11 @@
   <div id="game_over">
     <h1>Game Over!</h1>
     <div id="play_again_button">Play Again?</div>
+  </div>
+
+  <div id="next_level">
+    <h1>You Won!</h1>
+    <div id="next_level_button">Play Next Level!</div>
   </div>
 
 
