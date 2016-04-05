@@ -2,8 +2,11 @@
 <html>
 <head>
   <style media="screen">
-  #game {
-          background: #ff3333;
+  body {
+    text-align: center;
+  }
+  canvas {
+    background: #ff3333;
           }
   .left_right{
     cursor: url(left_right_arrows.png), auto;
@@ -16,6 +19,7 @@
   <title>Game Time</title>
 </head>
 <body>
+  <h1>Level: <span>1</span></h1>
   <canvas class="left_right" id="game" width="600px" height="300px"></canvas>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="main.bundle.js"></script>
