@@ -7,7 +7,7 @@ describe('Ball', function() {
   context('with default attributes', function() {
     var ball = new Ball({x: 30, y: 40});
     var radius = 20;
-    var color = 'blue';
+    var color = 'yellow';
     var vx = 2;
     var vy = -2;
 
@@ -71,7 +71,7 @@ describe('Ball', function() {
     }
 
     it('returns true if ball hits wall', function(){
-      wall.building_wall = true;
+      
       assert.equal(hitsBuildingHorizontalWall(ball), true);
     });
   });
