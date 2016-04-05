@@ -1,27 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <style media="screen">
   #game {
-          background: #ff3333;
-          margin-left: 100px;
-          }
+    background: #ff3333;
+    margin-left: 100px;
+  }
   .left_right{
     cursor: url(left_right_arrows.png), auto;
   }
   .up_down{
     cursor: url(up_down_arrows.png), auto;
   }
+  #game_over {
+    display: none;
+  }
+
+  #game_start, #game_over {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: teal;
+      color: #fff;
+      text-align: center;
+      font-family: Arial Narrow, sans-serif;
+  }
+  #game_start_button, #play_again_button {
+    border: 1px solid #fff;
+    padding: 20px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+  }
+  #game_start_button:hover, #play_again_button:hover {
+    background-color: rgba(0,0,0,0.7);
+  }
   </style>
+
   <meta charset="utf-8">
   <title>Game Time</title>
 </head>
 <body>
   <canvas class="left_right" id="game" width="500px" height="250px"></canvas>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+
+  <div id="game_start">
+    <h1>JezzBall!</h1>
+    <h2>How To Play</h2>
+    <h3>Object Of The Game:</h3>
+    <p>
+      Trap the ball by drawing walls across the canvas.
+    </p>
+    <h3>Instructions</h3>
+    <p>
+      Click on the canvas to start drawing a wall. If the ball hits the wall before the wall is finished being built, you lose!
+    </p>
+    <h3>TIPS:</h3>
+    <p>
+      Hit the spacebar to change direction of the wall.
+    </p>
+    <div id="game_start_button">Start Game</div>
+  </div>
+
+  <div id="game_over">
+    <h1>Game Over!</h1>
+    <div id="play_again_button">Play Again?</div>
+  </div>
+
+
   <script src="main.bundle.js"></script>
   <p id="direction">horizontal</p>
   <p id="original_canvas_size"></p>
   <p id="new_canvas_size">100%</p>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $( "#game_start_button" ).click(function() {
+      $("#game_start").fadeOut( "slow", function() {
+        $("#game_start").css('display', 'none');
+      });
+    });
+  });
+  </script>
 </body>
 </html>
