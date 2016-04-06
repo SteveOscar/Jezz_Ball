@@ -1,15 +1,16 @@
 const chai = require('chai'); const assert = chai.assert;
+var pry = require('pryjs')
 
 const Ball = require('../lib/ball');
 const Wall = require('../lib/wall');
 
 describe('Ball', function() {
   context('with default attributes', function() {
-    var ball = new Ball({x: 30, y: 40});
-    var radius = 20;
-    var color = 'yellow';
-    var vx = 2;
-    var vy = -2;
+    var ball = new Ball({x: 30, y: 40, level: 2});
+    var radius = 14;
+    var color = 'white';
+    var vx = 1;
+    var vy = -1;
 
     it('should assign an x coordinate', function() {
       assert.equal(ball.x, 30);
@@ -62,18 +63,19 @@ describe('Ball', function() {
     });
   });
 
-  context('checks for hitting a moving horizontal wall', function(){
-    var ball = new Ball({x: 30, y: 40});
-    var wall = new Wall({x: 55, y: 70});
+  context('test ball move function', function(){
+    var ball = new Ball({x: 30, y: 40, level: 2});
+    var radius = 20;
+    var color = 'yellow';
 
-    function hitsBuildingHorizontalWall(ball) {
-      return (ball.x > wall.x && ball.x < (wall.x + wall.width)	&& wall.building_wall === true);
-    }
 
-    it('returns true if ball hits wall', function(){
-      
-      assert.equal(hitsBuildingHorizontalWall(ball), true);
+    it('should change coordinates', function() {
+      ball.move(600, 500, []);
+      assert.equal(ball.x, 31);
+      assert.equal(ball.y, 39);
     });
+
+
   });
 
 });
