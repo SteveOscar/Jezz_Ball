@@ -27,17 +27,6 @@ describe('Wall', function() {
     });
   });
 
-  context('walls can be filtered', function(){
-   var allWalls = [{x: 10, y: 10, orientation: 0}, {x: 20, y: 20, orientation: 0}, {x: 10, y: 10, orientation: 1}, {x: 20, y: 20, orientation: 1} ];
 
-   it('should filter horizontal walls', function(){
-    //  function filteredHorizontal(allWalls) {
-    //    return allWalls.filter(function(wall){return wall.orientation === 0;});
-    //  }
-
-     var result = WallHelper.filteredHorizontal(allWalls);
-     assert.equal(result.length, 2);
-   });
- });
 
 });
