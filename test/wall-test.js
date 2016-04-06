@@ -5,10 +5,11 @@ const Wall = require('../lib/wall');
 const WallHelper = require('../lib/wall-helper')
 
 describe('Wall', function() {
-  context('with default attributes', function() {
-    var wall = new Wall({x: 30, y: 40});
+  context('create wall with default attributes', function() {
+    var wall = new Wall({x: 30, y: 40, orientation: 1});
     var width = 4;
     var height = 4;
+    var color = 'teal';
 
     it('should assign an x coordinate', function() {
       assert.equal(wall.x, 30);
@@ -24,6 +25,21 @@ describe('Wall', function() {
 
     it('should assign a width', function(){
       assert.equal(wall.width, width);
+    });
+
+    it('should assign an orientation', function(){
+      assert.equal(wall.orientation, 1);
+    });
+
+    it('should assign a color', function(){
+      assert.equal(wall.color, 'teal');
+    });
+
+    it('should assign a startX', function(){
+      assert.equal(wall.startX, 30);
+    });
+    it('should assign a startY', function(){
+      assert.equal(wall.startY, 40);
     });
   });
 
