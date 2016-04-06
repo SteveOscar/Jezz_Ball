@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="main.css"/>
   <meta charset="utf-8">
   <title>Game Time</title>
@@ -8,18 +10,19 @@
 <body>
   <canvas class="left_right" id="game" width="500px" height="250px"></canvas>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  <h2>Level: <span id="game_level">1</span></h2>
-  <h2>High Score: <span id="high_score"></span> </h2>
+  <div class="container">
+    <h2 class="info">Level: <span id="game_level">1</span></h2>
+    <h2 class="info">High Score: <span id="high_score"></span> </h2>
+  </div>
   <div id="game_start">
-    <h1>JezzBall!</h1>
+    <h1 class="styled-text colored">JezzBall!</h1>
     <h2>How To Play</h2>
-    <h3>Object Of The Game:</h3>
     <p>
       Trap the ball by drawing walls across the canvas.
     </p>
     <h3>Instructions</h3>
     <p>
-      Click on the canvas to start drawing a wall. If the ball hits the wall before the wall is finished being built, you lose!
+      Click on the canvas to start drawing a wall. </br> If the ball hits the wall before the wall is finished being built, you lose!
     </p>
     <h3>TIPS:</h3>
     <p>
@@ -40,9 +43,11 @@
 
 
   <script src="main.bundle.js"></script>
-  <p id="direction">horizontal</p>
-  <p id="original_canvas_size"></p>
-  <p id="new_canvas_size">100%</p>
+  <div class="container">
+    <p id="direction">horizontal</p>
+    <p id="original_canvas_size"></p>
+    <p id="new_canvas_size">100%</p>
+  </div>
   <script type="text/javascript">
   // $(document).ready(function(){
   //   $( "#game_start_button" ).click(function() {

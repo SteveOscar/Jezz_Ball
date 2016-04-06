@@ -1,7 +1,23 @@
+body{
+  background-color: teal;
+  font-family: 'Quicksand', sans-serif;
+}
 #game {
-  background: #ff3333;
+  background: white;
+  opacity: .8;
   display: block;
   margin: auto;
+  font-family: 'Quicksand', sans-serif;
+}
+.styled-text{
+  font-family: 'Quicksand', sans-serif;
+}
+h1{
+  font-size: 80px;
+  margin: 5px;
+}
+.colored{
+  color: yellow;
 }
 .left_right{
   cursor: url(left_right_arrows.png), auto;
@@ -22,7 +38,7 @@
   background-color: teal;
   color: #fff;
   text-align: center;
-  font-family: Arial Narrow, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 #game_start_button, #play_again_button, #next_level_button {
   border: 1px solid #fff;
@@ -35,4 +51,12 @@
 }
 #game_start_button:hover, #play_again_button:hover, #next_level_button:hover {
   background-color: rgba(0,0,0,0.7);
+}
+.container{
+  text-align: center;
+}
+.info{
+  display: inline-block;
+  margin-right: 15px;
+  color: white;
 }
