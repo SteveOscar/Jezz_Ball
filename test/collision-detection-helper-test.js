@@ -58,4 +58,31 @@ describe('Collision Detection', function() {
       assert.equal(result, walls[0]);
     });
   });
+
+  context('detects a ball hit a wall', function() {
+    var ballBottom = [20, 21, 22];
+    var wallValues = [21, 30, 48];
+
+    it('detect ball hitting wall', function() {
+      var result = CDHelper.ballHitWall(ballBottom, wallValues);
+      assert.equal(result, true);
+    });
+  });
+
+
+
+  // context('checks for collisions', function() {
+  //   var walls = [new Wall({x: 16, y: 74, orientation: 1, building_wall: false}),
+  //                new Wall({x: 17, y: 75, orientation: 1, building_wall: false}),
+  //                new Wall({x: 15, y: 76, orientation: 1,  building_wall: false})];
+  //
+  //   var ball = new Ball({x: 30, y: 60, level: 2});
+  //
+  //   it('detect a collision to the left', function() {
+  //     var result = CDHelper.checkForValidCollisions(walls, ball);
+  //     eval(pry.it)
+  //     assert.equal(result, walls[0]);
+  //
+  //   });
+  // });
 });
