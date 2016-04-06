@@ -1,6 +1,7 @@
 #game {
   background: #ff3333;
-  margin-left: 100px;
+  display: block;
+  margin: auto;
 }
 .left_right{
   cursor: url(left_right_arrows.png), auto;
