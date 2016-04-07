@@ -1,8 +1,6 @@
 const chai = require('chai'); const assert = chai.assert;
-var pry = require('pryjs')
-
 const Ball = require('../lib/ball');
-const BallEdges = require('../lib/ball-edges')
+const BallEdges = require('../lib/ball-edges');
 
 
 describe('Ball Edges', function() {
