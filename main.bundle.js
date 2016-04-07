@@ -85,14 +85,15 @@
 	window.addEventListener('keypress', function (e) {
 	  e.preventDefault();
 	  var direction = document.getElementById('direction');
+	  var button = document.getElementById('orientation_button');
 	  var gameBoard = document.getElementById('game');
 	  if (e.charCode === 32) {
 	    var current = tracker.orientation;
 	    if (current === 0) {
-	      tracker.orientation = 1;direction.innerHTML = "vertical", gameBoard.setAttribute('class', 'up_down');
+	      tracker.orientation = 1;direction.innerHTML = "vertical", gameBoard.setAttribute('class', 'up_down'), button.innerHTML = "Horizontal";
 	    };
 	    if (current === 1) {
-	      tracker.orientation = 0;direction.innerHTML = "horizontal", gameBoard.setAttribute('class', 'left_right');
+	      tracker.orientation = 0;direction.innerHTML = "horizontal", gameBoard.setAttribute('class', 'left_right'), button.innerHTML = "Vertical";
 	    };
 	  }
 	  if (e.charCode === 112) {
