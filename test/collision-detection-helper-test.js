@@ -108,13 +108,5 @@ describe('Collision Detection', function() {
       CDHelper.checkIfLoseGame(walls, ball);
       assert.equal(ball.lose, true);
     });
-
-    // var ball2 = new Ball({x: 30, y: 60, level: 2});
-    //
-    // it('detect a collision to the bottom', function() {
-    //   assert.equal(ball2.vy, -1);
-    //   CDHelper.checkForValidCollisions(walls, ball2);
-    //   assert.equal(ball2.vy, 1);
-    // });
   });
 });
