@@ -16316,7 +16316,7 @@
 	    if (this.walls[this.walls.length - 1].building_wall === false) {
 	      this.gameplayArea = newArea / this.originalCanvasArea * 100;
 	    }
-	    newSizeElement.innerHTML = "Canvas Left: " + this.gameplayArea + "%";
+	    newSizeElement.innerHTML = "Canvas Left: " + Math.round(this.gameplayArea) + "%";
 	  }
 	};
 
@@ -16354,7 +16354,7 @@
 	      zeus.playing = true;
 	      zeus.resetGame();
 	      $('#game_level').text(zeus.level);
-	      $('#new_canvas_size').text("Canvas Left: " + parseInt(zeus.gameplayArea) + "%");
+	      $('#new_canvas_size').text("Canvas Left: " + Math.round(parseInt(zeus.gameplayArea)) + "%");
 	    });
 	  });
 	}
