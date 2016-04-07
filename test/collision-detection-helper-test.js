@@ -69,8 +69,6 @@ describe('Collision Detection', function() {
     });
   });
 
-
-
   context('checks for collisions', function() {
     var walls = [new Wall({x: 16, y: 74, orientation: 1}),
                  new Wall({x: 17, y: 75, orientation: 1}),
@@ -87,18 +85,37 @@ describe('Collision Detection', function() {
       assert.equal(ball.vx, -1);
     });
 
-    var walls2 = [new Wall({x: 16, y: 74, orientation: 0}),
-                 new Wall({x: 17, y: 75, orientation: 0}),
-                 new Wall({x: 15, y: 76, orientation: 0})];
-   walls2[0].building_wall = false;
-   walls2[1].building_wall = false;
-   walls2[2].building_wall = false;
     var ball2 = new Ball({x: 30, y: 60, level: 2});
 
     it('detect a collision to the bottom', function() {
       assert.equal(ball2.vy, -1);
-      CDHelper.checkForValidCollisions(walls2, ball2);
+      CDHelper.checkForValidCollisions(walls, ball2);
       assert.equal(ball2.vy, 1);
     });
+  });
+
+  context('checks for game loss', function() {
+    var walls = [new Wall({x: 16, y: 76, orientation: 0}),
+                 new Wall({x: 17, y: 75, orientation: 0}),
+                 new Wall({x: 15, y: 74, orientation: 0})];
+   walls[0].width = 50;
+   walls[1].width = 50;
+   walls[2].width = 50;
+
+    var ball = new Ball({x: 30, y: 60, level: 2});
+
+    it('lose if ball hits building wall', function() {
+      assert.equal(ball.lose, false);
+      CDHelper.checkIfLoseGame(walls, ball);
+      assert.equal(ball.lose, true);
+    });
+
+    // var ball2 = new Ball({x: 30, y: 60, level: 2});
+    //
+    // it('detect a collision to the bottom', function() {
+    //   assert.equal(ball2.vy, -1);
+    //   CDHelper.checkForValidCollisions(walls, ball2);
+    //   assert.equal(ball2.vy, 1);
+    // });
   });
 });
