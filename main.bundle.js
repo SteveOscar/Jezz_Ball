@@ -145,7 +145,7 @@
 	  this.y = data.y;
 	  this.startX = parseInt(data.x);
 	  this.startY = data.y;
-	  this.color = 'teal';
+	  this.color = 'black';
 	  this.width = 4;
 	  this.height = 4;
 	  this.context = data.context || 'test';
@@ -16447,7 +16447,7 @@
 	  var context = canvas.getContext('2d');
 	  context.beginPath();
 	  context.rect(x, y, width, height);
-	  context.fillStyle = 'teal';
+	  context.fillStyle = 'black';
 	  context.fill();
 	}
 
@@ -26312,8 +26312,8 @@
 	  this.y = data.y;
 	  this.color = "white";
 	  this.radius = 14;
-	  this.vx = data.level / 2;
-	  this.vy = -data.level / 2;
+	  this.vx = (data.level + 1) / 2;
+	  this.vy = (-data.level - 1) / 2;
 	  this.context = data.context || 'test';
 	  this.lose = false;
 	}
