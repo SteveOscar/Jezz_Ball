@@ -1,15 +1,13 @@
 const chai = require('chai'); const assert = chai.assert;
-var pry = require('pryjs')
 
 const Wall = require('../lib/wall');
-const WallHelper = require('../lib/wall-helper')
+const WallHelper = require('../lib/wall-helper');
 
 describe('Wall', function() {
   context('create wall with default attributes', function() {
     var wall = new Wall({x: 30, y: 40, orientation: 1});
     var width = 4;
     var height = 4;
-    var color = 'teal';
 
     it('should assign an x coordinate', function() {
       assert.equal(wall.x, 30);

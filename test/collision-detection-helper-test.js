@@ -1,5 +1,4 @@
 const chai = require('chai'); const assert = chai.assert;
-var pry = require('pryjs')
 
 const Ball = require('../lib/ball');
 const Wall = require('../lib/wall');
