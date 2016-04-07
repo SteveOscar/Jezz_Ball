@@ -16339,8 +16339,9 @@
 	      highScore(zeus);
 	      zeus.gameplayArea = 100;
 	      zeus.level = 1;
-	      $('#game_level').text(zeus.level);
 	      zeus.resetGame();
+	      $('#game_level').text(zeus.level);
+	      $('#new_canvas_size').text("Canvas Left: " + Math.round(parseInt(zeus.gameplayArea)) + "%");
 	    });
 	  });
 	}
