@@ -30,7 +30,7 @@ describe('Wall', function() {
     });
 
     it('should assign a color', function(){
-      assert.equal(wall.color, 'teal');
+      assert.equal(wall.color, 'black');
     });
 
     it('should assign a startX', function(){
