@@ -107,7 +107,7 @@
 	zeus.canvas.addEventListener('click', function (event) {
 	  var coords = getCursorPosition(zeus.canvas, event);
 	  if (zeus.walls.length === 0 || zeus.walls[zeus.walls.length - 1].building_wall === false) {
-	    var newWall = new Wall({ x: coords.x, y: coords.y, context: zeus.context, orientation: tracker.orientation });
+	    var newWall = new Wall({ x: coords.x + 15, y: coords.y + 15, context: zeus.context, orientation: tracker.orientation });
 	    zeus.walls.push(newWall);
 	  }
 	});
