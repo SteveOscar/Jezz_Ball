@@ -50,7 +50,7 @@
 	var Zeus = __webpack_require__(5);
 	var $ = __webpack_require__(6);
 	var zeus = new Zeus();
-	var CollisionDetect = __webpack_require__(9);
+	var collisionDetect = __webpack_require__(8);
 
 	function gameLoop() {
 	  var ballPosition = getBallPosition(zeus.canvas);
@@ -62,7 +62,7 @@
 	    zeus.existingCanvas();
 	    zeus.monitorGameStatus();
 	    setCanvasSize(zeus.canvasWidth, zeus.canvasHeight);
-	    CollisionDetect(zeus.canvasWidth, zeus.canvasHeight, zeus.walls, zeus.ball);
+	    collisionDetect(zeus.canvasWidth, zeus.canvasHeight, zeus.walls, zeus.ball);
 	  }
 	  requestAnimationFrame(gameLoop);
 	}
@@ -90,14 +90,11 @@
 	    var current = tracker.orientation;
 	    if (current === 0) {
 	      tracker.orientation = 1;direction.innerHTML = "vertical", gameBoard.setAttribute('class', 'up_down');
-	    }
+	    };
 	    if (current === 1) {
 	      tracker.orientation = 0;direction.innerHTML = "horizontal", gameBoard.setAttribute('class', 'left_right');
-	    }
+	    };
 	  }
-	  // if(e.charCode === 115){
-	  //   zeus.playing = true;
-	  // }
 	  if (e.charCode === 112) {
 	    if (zeus.playing) {
 	      zeus.playing = false;
@@ -16319,14 +16316,14 @@
 	    if (this.walls[this.walls.length - 1].building_wall === false) {
 	      this.gameplayArea = newArea / this.originalCanvasArea * 100;
 	    }
-	    newSizeElement.innerHTML = "Area Remaining: " + newArea + ". Percentage: " + this.gameplayArea;
+	    newSizeElement.innerHTML = "Canvas Left: " + this.gameplayArea + "%";
 	  }
 	};
 
 	function highScore(zeus) {
 	  var cookieDisplay = '1';
-	  if (document.cookie.length > 12) {
-	    cookieDisplay = document.cookie.split(';')[1].split('=')[1];
+	  if (document.cookie.length > 11) {
+	    cookieDisplay = document.cookie.split('=')[1];
 	  }
 	  if (zeus.level > parseInt(cookieDisplay)) {
 	    document.cookie = "high_score=" + zeus.level;
@@ -16357,6 +16354,7 @@
 	      zeus.playing = true;
 	      zeus.resetGame();
 	      $('#game_level').text(zeus.level);
+	      $('#new_canvas_size').text("Canvas Left: " + parseInt(zeus.gameplayArea) + "%");
 	    });
 	  });
 	}
@@ -26304,12 +26302,9 @@
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	var BallEdges = __webpack_require__(8);
-	var WallHelper = __webpack_require__(2);
+	"use strict";
 
 	function Ball(data) {
 	  this.x = data.x;
@@ -26346,24 +26341,22 @@
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	module.exports = {
-	  leftSideOfBall: function leftSideOfBall(ball) {
-	    return [ball.x - ball.radius, ball.x - ball.radius + 1, ball.x - ball.radius - 1, ball.x - ball.radius + 2, ball.x - ball.radius - 2];
-	  },
-	  rightSideOfBall: function rightSideOfBall(ball) {
-	    return [ball.x + ball.radius, ball.x + ball.radius + 1, ball.x + ball.radius - 1, ball.x + ball.radius + 2, ball.x + ball.radius - 2];
-	  },
-	  topOfBall: function topOfBall(ball) {
-	    return [ball.y - ball.radius, ball.y - ball.radius + 1, ball.y - ball.radius - 1, ball.y - ball.radius + 2, ball.y - ball.radius - 2];
-	  },
-	  bottomOfBall: function bottomOfBall(ball) {
-	    return [ball.y + ball.radius, ball.y + ball.radius + 1, ball.y + ball.radius - 1, ball.y + ball.radius - 2, ball.y + ball.radius + 2];
+	var CollisionHelper = __webpack_require__(9);
+
+	var collisionDetection = function collisionDetection(canvasWidth, canvasHeight, walls, ball) {
+	  if (walls.length > 0) {
+	    CollisionHelper.checkIfLoseGame(walls, ball);
+	    CollisionHelper.checkForValidCollisions(walls, ball);
 	  }
+	  CollisionHelper.reverseHorizontalVelocityAgainstCanvas(canvasWidth, ball);
+	  CollisionHelper.reverseVerticalVelocityAgainstCanvas(canvasHeight, ball);
 	};
+
+	module.exports = collisionDetection;
 
 /***/ },
 /* 9 */
@@ -26371,26 +26364,7 @@
 
 	'use strict';
 
-	var CollisionHelper = __webpack_require__(10);
-
-	var collisionDetection = function collisionDetection(canvasWidth, canvasHeight, walls, ball) {
-	  CollisionHelper.reverseHorizontalVelocityAgainstCanvas(canvasWidth, ball);
-	  CollisionHelper.reverseVerticalVelocityAgainstCanvas(canvasHeight, ball);
-
-	  if (walls.length > 0) {
-	    CollisionHelper.checkIfLoseGame(walls, ball);
-	  }
-	};
-
-	module.exports = collisionDetection;
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var BallEdges = __webpack_require__(8);
+	var BallEdges = __webpack_require__(10);
 	var WallHelper = __webpack_require__(2);
 
 	module.exports = {
@@ -26402,7 +26376,7 @@
 	  },
 
 	  reverseVerticalVelocityAgainstCanvas: function reverseVerticalVelocityAgainstCanvas(canvasHeight, ball) {
-	    if (BallEdges.bottomOfBall(ball).includes(canvasHeight) || BallEdges.topOfBall(ball).includes(0)) {
+	    if (BallEdges.topOfBall(ball)[0] < 0 || BallEdges.bottomOfBall(ball)[0] > canvasHeight) {
 	      ball.vy = -ball.vy;
 	    }
 	  },
@@ -26477,6 +26451,27 @@
 	    }
 	  }
 
+	};
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = {
+	  leftSideOfBall: function leftSideOfBall(ball) {
+	    return [ball.x - ball.radius, ball.x - ball.radius + 1, ball.x - ball.radius - 1, ball.x - ball.radius + 2, ball.x - ball.radius - 2];
+	  },
+	  rightSideOfBall: function rightSideOfBall(ball) {
+	    return [ball.x + ball.radius, ball.x + ball.radius + 1, ball.x + ball.radius - 1, ball.x + ball.radius + 2, ball.x + ball.radius - 2];
+	  },
+	  topOfBall: function topOfBall(ball) {
+	    return [ball.y - ball.radius, ball.y - ball.radius + 1, ball.y - ball.radius - 1, ball.y - ball.radius + 2, ball.y - ball.radius - 2];
+	  },
+	  bottomOfBall: function bottomOfBall(ball) {
+	    return [ball.y + ball.radius, ball.y + ball.radius + 1, ball.y + ball.radius - 1, ball.y + ball.radius - 2, ball.y + ball.radius + 2];
+	  }
 	};
 
 /***/ }
