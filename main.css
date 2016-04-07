@@ -52,6 +52,14 @@ h1{
 #game_start_button:hover, #play_again_button:hover, #next_level_button:hover {
   background-color: rgba(0,0,0,0.7);
 }
+#new_canvas_size {
+  color: #fff;
+  font-size: 24px;
+}
+#new_canvas_size span {
+  font-weight: bold;
+  color: #fff;
+}
 .container{
   text-align: center;
 }
