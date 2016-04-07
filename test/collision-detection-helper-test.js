@@ -71,18 +71,34 @@ describe('Collision Detection', function() {
 
 
 
-  // context('checks for collisions', function() {
-  //   var walls = [new Wall({x: 16, y: 74, orientation: 1, building_wall: false}),
-  //                new Wall({x: 17, y: 75, orientation: 1, building_wall: false}),
-  //                new Wall({x: 15, y: 76, orientation: 1,  building_wall: false})];
-  //
-  //   var ball = new Ball({x: 30, y: 60, level: 2});
-  //
-  //   it('detect a collision to the left', function() {
-  //     var result = CDHelper.checkForValidCollisions(walls, ball);
-  //     eval(pry.it)
-  //     assert.equal(result, walls[0]);
-  //
-  //   });
-  // });
+  context('checks for collisions', function() {
+    var walls = [new Wall({x: 16, y: 74, orientation: 1}),
+                 new Wall({x: 17, y: 75, orientation: 1}),
+                 new Wall({x: 15, y: 76, orientation: 1})];
+
+    var ball = new Ball({x: 30, y: 60, level: 2});
+    walls[0].building_wall = false;
+    walls[1].building_wall = false;
+    walls[2].building_wall = false;
+
+    it('detect a collision to the left', function() {
+      assert.equal(ball.vx, 1);
+      CDHelper.checkForValidCollisions(walls, ball);
+      assert.equal(ball.vx, -1);
+    });
+
+    var walls2 = [new Wall({x: 16, y: 74, orientation: 0}),
+                 new Wall({x: 17, y: 75, orientation: 0}),
+                 new Wall({x: 15, y: 76, orientation: 0})];
+   walls2[0].building_wall = false;
+   walls2[1].building_wall = false;
+   walls2[2].building_wall = false;
+    var ball2 = new Ball({x: 30, y: 60, level: 2});
+
+    it('detect a collision to the bottom', function() {
+      assert.equal(ball2.vy, -1);
+      CDHelper.checkForValidCollisions(walls2, ball2);
+      assert.equal(ball2.vy, 1);
+    });
+  });
 });
