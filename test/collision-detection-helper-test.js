@@ -79,17 +79,17 @@ describe('Collision Detection', function() {
     walls[2].building_wall = false;
 
     it('detect a collision to the left', function() {
-      assert.equal(ball.vx, 1);
+      assert.equal(ball.vx, 1.5);
       CDHelper.checkForValidCollisions(walls, ball);
-      assert.equal(ball.vx, -1);
+      assert.equal(ball.vx, -1.5);
     });
 
     var ball2 = new Ball({x: 30, y: 60, level: 2});
 
     it('detect a collision to the bottom', function() {
-      assert.equal(ball2.vy, -1);
+      assert.equal(ball2.vy, -1.5);
       CDHelper.checkForValidCollisions(walls, ball2);
-      assert.equal(ball2.vy, 1);
+      assert.equal(ball2.vy, 1.5);
     });
   });
 

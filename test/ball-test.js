@@ -9,8 +9,8 @@ describe('Ball', function() {
     var ball = new Ball({x: 30, y: 40, level: 2});
     var radius = 14;
     var color = 'white';
-    var vx = 1;
-    var vy = -1;
+    var vx = 1.5;
+    var vy = -1.5;
 
     it('should assign an x coordinate', function() {
       assert.equal(ball.x, 30);
@@ -71,8 +71,8 @@ describe('Ball', function() {
 
     it('should change coordinates', function() {
       ball.move(600, 500, []);
-      assert.equal(ball.x, 31);
-      assert.equal(ball.y, 39);
+      assert.equal(ball.x, 31.5);
+      assert.equal(ball.y, 38.5);
     });
 
 

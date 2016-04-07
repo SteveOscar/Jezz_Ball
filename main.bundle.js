@@ -16267,7 +16267,8 @@
 	  this.win = false;
 	  this.gameplayArea = 100;
 	  this.level = 1;
-	  this.ball = new Ball({ x: 30, y: 30, context: this.context, level: this.level });
+	  this.ball = new Ball({ x: 30, y: 30, context: this.context, level: this.level
+	  });
 	}
 
 	Zeus.prototype.inPlay = function () {
