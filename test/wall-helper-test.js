@@ -75,5 +75,4 @@ describe('WallHelper', function() {
       assert.deepEqual(results, [ 15, 30, 45 ]);
     });
   });
-
 });

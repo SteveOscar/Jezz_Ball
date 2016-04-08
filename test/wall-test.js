@@ -1,7 +1,5 @@
 const chai = require('chai'); const assert = chai.assert;
-
 const Wall = require('../lib/wall');
-const WallHelper = require('../lib/wall-helper');
 
 describe('Wall', function() {
   context('create wall with default attributes', function() {
@@ -30,7 +28,7 @@ describe('Wall', function() {
     });
 
     it('should assign a color', function(){
-      assert.equal(wall.color, 'teal');
+      assert.equal(wall.color, 'black');
     });
 
     it('should assign a startX', function(){
@@ -40,7 +38,4 @@ describe('Wall', function() {
       assert.equal(wall.startY, 40);
     });
   });
-
-
-
 });

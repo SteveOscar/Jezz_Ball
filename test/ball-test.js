@@ -1,16 +1,13 @@
 const chai = require('chai'); const assert = chai.assert;
-var pry = require('pryjs')
-
 const Ball = require('../lib/ball');
-const Wall = require('../lib/wall');
 
 describe('Ball', function() {
   context('with default attributes', function() {
     var ball = new Ball({x: 30, y: 40, level: 2});
     var radius = 14;
     var color = 'white';
-    var vx = 1;
-    var vy = -1;
+    var vx = 1.5;
+    var vy = -1.5;
 
     it('should assign an x coordinate', function() {
       assert.equal(ball.x, 30);
@@ -39,7 +36,6 @@ describe('Ball', function() {
 
   context('verify location of ball edges', function(){
     var ball = new Ball({x: 30, y: 40});
-    var wall = new Wall({x: 55, y: 70});
     var radius = 20;
     var leftSideOfBall = ball.x - radius;
     var rightSideOfBall = ball.x + radius;
@@ -65,17 +61,11 @@ describe('Ball', function() {
 
   context('test ball move function', function(){
     var ball = new Ball({x: 30, y: 40, level: 2});
-    var radius = 20;
-    var color = 'yellow';
-
 
     it('should change coordinates', function() {
       ball.move(600, 500, []);
-      assert.equal(ball.x, 31);
-      assert.equal(ball.y, 39);
+      assert.equal(ball.x, 31.5);
+      assert.equal(ball.y, 38.5);
     });
-
-
   });
-
 });
