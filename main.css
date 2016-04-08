@@ -1,18 +1,23 @@
 body{
-  background-color: teal;
-  font-family: 'Quicksand', sans-serif;
+ background-color: black;
+ color: yellow;
+ font-family: 'Quicksand', sans-serif;
+ background-image: url('grid.png');
+ background-repeat: repeat;
 }
 #game {
-  background: white;
+  background: #FF6A00;
   opacity: .8;
   display: block;
   margin: auto;
   font-family: 'Quicksand', sans-serif;
+  margin-top: 20px;
 }
 .styled-text{
   font-family: 'Quicksand', sans-serif;
 }
 h1{
+  text-align: center;
   font-size: 80px;
   margin: 5px;
 }
@@ -35,22 +40,28 @@ h1{
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: teal;
-  color: #fff;
+  background-color: black;
+  color: #ff0000 ;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
+ #game_over, #next_level {
+   padding-top: 200px;
+ }
+ #game_start{
+   padding-top: 50px;
+ }
 #game_start_button, #play_again_button, #next_level_button {
   border: 1px solid #fff;
   padding: 20px;
   width: 100px;
   margin: 0 auto;
   border-radius: 5px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.3);
   cursor: pointer;
 }
 #game_start_button:hover, #play_again_button:hover, #next_level_button:hover {
-  background-color: rgba(0,0,0,0.7);
+background-color: rgba(255,255,255,0.7);
 }
 #new_canvas_size {
   color: #fff;

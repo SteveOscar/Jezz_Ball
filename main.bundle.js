@@ -107,7 +107,7 @@
 	zeus.canvas.addEventListener('click', function (event) {
 	  var coords = getCursorPosition(zeus.canvas, event);
 	  if (zeus.walls.length === 0 || zeus.walls[zeus.walls.length - 1].building_wall === false) {
-	    var newWall = new Wall({ x: coords.x, y: coords.y, context: zeus.context, orientation: tracker.orientation });
+	    var newWall = new Wall({ x: coords.x + 15, y: coords.y + 15, context: zeus.context, orientation: tracker.orientation });
 	    zeus.walls.push(newWall);
 	  }
 	});
@@ -145,7 +145,7 @@
 	  this.y = data.y;
 	  this.startX = parseInt(data.x);
 	  this.startY = data.y;
-	  this.color = 'teal';
+	  this.color = 'black';
 	  this.width = 4;
 	  this.height = 4;
 	  this.context = data.context || 'test';
@@ -16267,7 +16267,8 @@
 	  this.win = false;
 	  this.gameplayArea = 100;
 	  this.level = 1;
-	  this.ball = new Ball({ x: 30, y: 30, context: this.context, level: this.level });
+	  this.ball = new Ball({ x: 30, y: 30, context: this.context, level: this.level
+	  });
 	}
 
 	Zeus.prototype.inPlay = function () {
@@ -16447,7 +16448,7 @@
 	  var context = canvas.getContext('2d');
 	  context.beginPath();
 	  context.rect(x, y, width, height);
-	  context.fillStyle = 'teal';
+	  context.fillStyle = 'black';
 	  context.fill();
 	}
 
@@ -26312,8 +26313,8 @@
 	  this.y = data.y;
 	  this.color = "white";
 	  this.radius = 14;
-	  this.vx = data.level / 2;
-	  this.vy = -data.level / 2;
+	  this.vx = (data.level + 1) / 2;
+	  this.vy = (-data.level - 1) / 2;
 	  this.context = data.context || 'test';
 	  this.lose = false;
 	}
