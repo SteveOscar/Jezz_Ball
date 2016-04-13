@@ -16300,10 +16300,10 @@
 
 	Zeus.prototype.initializeWall = function () {
 	  // var lastKeyPress = tracker.orientation
-	  // var that = this;
-	  this.walls.forEach((function (wall) {
-	    wall.draw(wall.context).move(this.canvasWidth, this.canvasHeight, this.walls);
-	  }).bind());
+	  var that = this;
+	  this.walls.forEach(function (wall) {
+	    wall.draw(wall.context).move(that.canvasWidth, that.canvasHeight, that.walls);
+	  });
 	};
 
 	Zeus.prototype.existingCanvas = function () {
