@@ -118,11 +118,16 @@
 	  var direction = document.getElementById('direction');
 	  var gameBoard = document.getElementById('game');
 	  if (current === 0) {
-	    tracker.orientation = 1;direction.innerHTML = "vertical", gameBoard.setAttribute('class', 'up_down'), this.innerHTML = "Horizontal";
-	  };
+	    tracker.orientation = 1;
+	    direction.innerHTML = "vertical";
+	    gameBoard.setAttribute('class', 'up_down');
+	    this.innerHTML = "Horizontal";
+	  }
 	  if (current === 1) {
-	    tracker.orientation = 0;direction.innerHTML = "horizontal", gameBoard.setAttribute('class', 'left_right'), this.innerHTML = "Vertical";
-	  };
+	    tracker.orientation = 0;direction.innerHTML = "horizontal";
+	    gameBoard.setAttribute('class', 'left_right');
+	    this.innerHTML = "Vertical";
+	  }
 	  $(this).fadeTo('fast', 0.6).fadeTo('fast', 1);
 	});
 
@@ -16295,10 +16300,10 @@
 
 	Zeus.prototype.initializeWall = function () {
 	  // var lastKeyPress = tracker.orientation
-	  var that = this;
-	  this.walls.forEach(function (wall) {
-	    wall.draw(wall.context).move(that.canvasWidth, that.canvasHeight, that.walls);
-	  });
+	  // var that = this;
+	  this.walls.forEach((function (wall) {
+	    wall.draw(wall.context).move(this.canvasWidth, this.canvasHeight, this.walls);
+	  }).bind());
 	};
 
 	Zeus.prototype.existingCanvas = function () {
