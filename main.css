@@ -51,6 +51,16 @@ h1{
  #game_start{
    padding-top: 50px;
  }
+ #orientation_button{
+   border: 1px solid #fff;
+   padding: 10px;
+   width: 100px;
+   margin: auto;
+   margin-top: 10px;
+   border-radius: 5px;
+   background-color: rgba(255,255,255,0.3);
+   cursor: pointer;
+ }
 #game_start_button, #play_again_button, #next_level_button {
   border: 1px solid #fff;
   padding: 20px;
@@ -79,3 +89,9 @@ background-color: rgba(255,255,255,0.7);
   margin-right: 15px;
   color: white;
 }
+
+/*@media only screen and (max-device-width: 600px) {
+		#orientation_button {
+			display: block;
+		}
+	}*/
