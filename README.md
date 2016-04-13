@@ -1,31 +1,22 @@
-# Game Time Starter Kit
+# GameTime
 
-To install the dependencies:
+### Deployed At: [Jezz Ball Deployed](steveoscar.github.io/game_time)
 
-```
-npm install
-```
+### Provide a Screenshot of your Game
+![JezzBall](http://g.recordit.co/gF4yV6qh4F.gif)
 
-To fire up a development server:
+---
 
-```
-npm start
-```
+## Project Specs
 
-Once the server is running, you can visit:
+For this project we were asked to build a fully playable client side game using exclusively JavaScript and a collection of approved libraries.
 
-* `http://localhost:8080/webpack-dev-server/` to run your application.
-* `http://localhost:8080/webpack-dev-server/test.html` to run your test suite in the browser.
+Emphasis was put on using design patterns to drive both the design and implementation of code, separating business-logic code from view-related code, and using test-driven design.
 
-To build the static files:
+## Challenges
 
-```js
-npm run build
-```
+This was the first project in JavaScript where we were writing code entirely in one language. It was challenging to adjust to writing tests for dynamic javascript methods after primarily focusing on Ruby and Rails.
 
+This was also our first experience writing and troubleshooting collision detection. By the end of the project we developed a more astute understanding of how code can manipulate and pinpoint the behavior of elements on the DOM.
 
-To run tests in Node:
-
-```js
-npm test
-```
+Additional challenges came from working with the velocity of an element in relation to its size and how that affected its interaction with surrounding elements.
